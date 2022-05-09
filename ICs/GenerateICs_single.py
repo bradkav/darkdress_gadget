@@ -4,6 +4,7 @@ import numpy as np
 import pygadgetic
 #-------------
 
+import units
 import eddington_EMRI as edd
 from scipy.interpolate import interp1d
 import argparse
@@ -70,7 +71,7 @@ print("  ")
 
 
 #L_sim = 3.24078e-14 #simulation units in pc
-L_sim = 4.780464724373724e-11 
+L_sim = 1.0*units.L_M
 
 #mu in units of pc (km/s)^2
 #a in units of pc
@@ -85,7 +86,7 @@ L_sim = 4.780464724373724e-11
 haloID = "halo_M=" + str(int(M_PBH)) + "_rho0=" + "{0:.2f}".format(rho0) + "_gamma=" + "{0:.2f}".format(gamma) + "_rs=" + str(r_soft)
 
 print("  First Halo:")
-mlist, xlist, vlist = PBH.AddDressedPBH_EMRI([0, 0, 0],[0, 0, 0],  r_soft, M_PBH, rho0, gamma, nDM, haloID="nothing", verbose=True)
+mlist, xlist, vlist = PBH.AddDressedPBH_EMRI([0, 0, 0],[0, 0, 0],  r_soft*L_sim, M_PBH, rho0, gamma, nDM, haloID="nothing", verbose=True)
 #PBH.AddDressedPBH_seg(my_body,np.arange(0,nDM),-1, nDM, [0, 0, 0],[0, 0, 0], r_soft, a, r_seg = np.sqrt(r_soft*r_tr), N_ratio = N_ratio, haloID=haloID1, verbose=True)
 
 

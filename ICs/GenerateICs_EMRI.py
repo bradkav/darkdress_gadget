@@ -8,7 +8,7 @@ import eddington_EMRI as edd
 from scipy.interpolate import interp1d
 import argparse
 
-
+import units
 from collections import Counter
 
 #This is the module that add the PBHs to the initial condition file
@@ -43,7 +43,7 @@ print("  Generating ICs with %d DM pseudo-particles per PBH..."%nDM)
 
 
 #L_sim = 3.24078e-14 #simulation units in pc
-L_sim = 4.780464724373724e-11 
+L_sim = 1.0*self.L_M
 
 #Calculate the truncation radius (just for information
 
